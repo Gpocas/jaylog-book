@@ -10,9 +10,7 @@ site_name = "jaylog"
 site_description = "Documentação guiada da biblioteca de logging jaylog para Python."
 site_author = "JBS - Time de Tecnologia e Inovação"
 
-# Ajuste para a URL final do GitHub Pages deste repositório
-# (ex.: https://gpocas.github.io/jaylog-book/) antes de publicar.
-#site_url = "https://gpocas.github.io/jaylog-book/"
+site_url = "https://gpocas.github.io/jaylog-book/"
 
 copyright = """
 Copyright &copy; 2026 JBS - Time de Tecnologia e Inovação

@@ -2,7 +2,7 @@
 
 !!! important
 
-    A partir da versão 0.2.2, `configure()` **deve** ser chamado antes de `get_logger()`. Chamar `get_logger()` sem configuração prévia lança uma exceção.
+    `configure()` deve ser chamado antes de usar o logger. `get_logger()` pode ser chamado antes — ele devolve um proxy preguiçoso (`_LazyLogger`) e só levanta uma exceção no primeiro uso efetivo (`logger.info(...)`, etc.), caso `configure()` ainda não tenha rodado até lá. Isso permite fazer `logger = get_logger()` no topo de um módulo antes de `configure()` ter rodado em outro lugar.
 
 O fluxo básico de uso do jaylog é sempre o mesmo:
 

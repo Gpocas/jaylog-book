@@ -2,6 +2,8 @@
 
 Documentação guiada da biblioteca [jaylog](https://github.com/Gpocas/jaylog), construída com [Zensical](https://zensical.org) e publicada no GitHub Pages.
 
+📖 **Documentação online:** https://gpocas.github.io/jaylog-book
+
 ## Desenvolvimento local
 
 ```bash
