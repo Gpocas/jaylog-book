@@ -27,12 +27,13 @@ As variáveis usam o prefixo `JAYLOG_`. Podem ser definidas no ambiente do siste
 | `JAYLOG_HOST_GIT_TIMEOUT`       | NÃO          | `3.0`     | Timeout, em segundos, de cada chamada ao Git                            |
 | `JAYLOG_HOST_GIT_DIR`           | NÃO          | `null`    | Diretório inicial para localizar o repositório                          |
 
-> [!IMPORTANT]
-> **`HTTP_ENDPOINT`** e **`HTTP_API_KEY`** (opcionais)
->
-> - A configuração de **HTTP_ENDPOINT** e **HTTP_API_KEY** não precisa ser feita em ambiente local ou de desenvolvimento.
-> - Se apenas uma das duas variáveis for definida, o envio HTTP é ignorado.
-> - Caso a aplicação execute em um ambiente que usa um proxy NTLM, defina `JAYLOG_LOG_HTTP_PROXY`.
+!!! important
+
+    **`HTTP_ENDPOINT`** e **`HTTP_API_KEY`** (opcionais)
+
+    - A configuração de **HTTP_ENDPOINT** e **HTTP_API_KEY** não precisa ser feita em ambiente local ou de desenvolvimento.
+    - Se apenas uma das duas variáveis for definida, o envio HTTP é ignorado.
+    - Caso a aplicação execute em um ambiente que usa um proxy NTLM, defina `JAYLOG_LOG_HTTP_PROXY`.
 
 ## Próximo passo
 

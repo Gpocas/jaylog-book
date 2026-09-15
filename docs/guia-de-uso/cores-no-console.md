@@ -23,8 +23,9 @@ Ou direto no código:
 configure(JaylogSettings(app_name="meu-bot", log_console_color=False))
 ```
 
-> [!TIP]
-> `JAYLOG_LOG_CONSOLE_COLOR=true` força as cores mesmo com a saída redirecionada — útil quando o log é consumido por uma ferramenta que entende ANSI (ex: `... | less -R`).
+!!! tip
+
+    `JAYLOG_LOG_CONSOLE_COLOR=true` força as cores mesmo com a saída redirecionada — útil quando o log é consumido por uma ferramenta que entende ANSI (ex: `... | less -R`).
 
 ## Próximo passo
 

@@ -1,7 +1,8 @@
 # Primeiros Passos
 
-> [!IMPORTANT]
-> A partir da versão 0.2.2, `configure()` **deve** ser chamado antes de `get_logger()`. Chamar `get_logger()` sem configuração prévia lança uma exceção.
+!!! important
+
+    A partir da versão 0.2.2, `configure()` **deve** ser chamado antes de `get_logger()`. Chamar `get_logger()` sem configuração prévia lança uma exceção.
 
 O fluxo básico de uso do jaylog é sempre o mesmo:
 

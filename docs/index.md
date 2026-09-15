@@ -35,7 +35,8 @@ logger = get_logger()
 logger.info("Olá, jaylog!")
 ```
 
-> [!IMPORTANT]
-> A partir da versão 0.2.2, `configure()` **deve** ser chamado antes de `get_logger()`. Chamar `get_logger()` sem configuração prévia lança uma exceção.
+!!! important
+
+    A partir da versão 0.2.2, `configure()` **deve** ser chamado antes de `get_logger()`. Chamar `get_logger()` sem configuração prévia lança uma exceção.
 
 Continue para [O que é o jaylog](conceitos/visao-geral.md) para entender o problema que a biblioteca resolve.

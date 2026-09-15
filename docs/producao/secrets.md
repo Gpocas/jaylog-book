@@ -1,7 +1,8 @@
 # Secrets em Produção
 
-> [!TIP]
-> Em produção é recomendado usar um diretório específico para suas secrets, para que você possa reutilizar entre diferentes aplicações.
+!!! tip
+
+    Em produção é recomendado usar um diretório específico para suas secrets, para que você possa reutilizar entre diferentes aplicações.
 
 ## Cenário 1 — secrets definidos em código (hardcode)
 
@@ -62,8 +63,9 @@ settings = JaylogSettings(app_name="meu-bot", log_level="DEBUG").reload_secrets(
 configure(settings)  # app_name e log_level mantidos; endpoint/api_key vêm dos secrets
 ```
 
-> [!NOTE]
-> Valores passados no construtor têm prioridade sobre os secrets: um `log_http_api_key='...'` definido em código **não** é sobrescrito pelo arquivo em `secrets/`.
+!!! note
+
+    Valores passados no construtor têm prioridade sobre os secrets: um `log_http_api_key='...'` definido em código **não** é sobrescrito pelo arquivo em `secrets/`.
 
 ## Próximo passo
 
