@@ -1,0 +1,117 @@
+# ============================================================================
+#
+# Configuração do Zensical para a documentação do jaylog.
+#
+# ============================================================================
+
+[project]
+
+site_name = "jaylog"
+site_description = "Documentação guiada da biblioteca de logging jaylog para Python."
+site_author = "JBS - Time de Tecnologia e Inovação"
+
+# Ajuste para a URL final do GitHub Pages deste repositório
+# (ex.: https://gpocas.github.io/jaylog-book/) antes de publicar.
+#site_url = "https://gpocas.github.io/jaylog-book/"
+
+copyright = """
+Copyright &copy; 2026 JBS - Time de Tecnologia e Inovação
+"""
+
+# Navegação guiada: começa nos conceitos e avança até o uso em produção.
+nav = [
+  { "Início" = "index.md" },
+  { "Conceitos Básicos" = [
+    { "O que é o jaylog" = "conceitos/visao-geral.md" },
+    { "Instalação" = "conceitos/instalacao.md" },
+    { "Primeiros Passos" = "conceitos/primeiros-passos.md" },
+  ]},
+  { "Configuração" = [
+    { "Variáveis de Ambiente" = "configuracao/variaveis-de-ambiente.md" },
+    { "Arquivos .env" = "configuracao/arquivos-env.md" },
+  ]},
+  { "Guia de Uso" = [
+    { "Cenários Comuns" = "guia-de-uso/cenarios-comuns.md" },
+    { "Múltiplos Loggers Nomeados" = "guia-de-uso/multiplos-loggers.md" },
+    { "Cores no Console" = "guia-de-uso/cores-no-console.md" },
+  ]},
+  { "Produção" = [
+    { "Registro de Ambiente (Host Reporting)" = "producao/registro-de-ambiente.md" },
+    { "Secrets em Produção" = "producao/secrets.md" },
+    { "Reconfigurando sem Repetir Argumentos" = "producao/reconfigurando.md" },
+  ]},
+  { "Referência" = [
+    { "API Pública" = "referencia/api.md" },
+  ]},
+]
+
+[project.theme]
+
+language = "pt"
+
+features = [
+    "announce.dismiss",
+    "content.code.annotate",
+    "content.code.copy",
+    "content.code.select",
+    "content.footnote.tooltips",
+    "content.tabs.link",
+    "content.tooltips",
+    "navigation.footer",
+    "navigation.indexes",
+    "navigation.instant",
+    "navigation.instant.prefetch",
+    "navigation.path",
+    "navigation.sections",
+    "navigation.top",
+    "navigation.tracking",
+    "search.highlight",
+]
+
+[[project.theme.palette]]
+scheme = "default"
+toggle.icon = "lucide/sun"
+toggle.name = "Switch to dark mode"
+
+[[project.theme.palette]]
+scheme = "slate"
+toggle.icon = "lucide/moon"
+toggle.name = "Switch to light mode"
+
+[[project.extra.social]]
+icon = "fontawesome/brands/github"
+link = "https://github.com/Gpocas/jaylog"
+
+[project.markdown_extensions.abbr]
+[project.markdown_extensions.admonition]
+[project.markdown_extensions.attr_list]
+[project.markdown_extensions.def_list]
+[project.markdown_extensions.footnotes]
+[project.markdown_extensions.md_in_html]
+[project.markdown_extensions.toc]
+permalink = true
+[project.markdown_extensions.pymdownx.betterem]
+[project.markdown_extensions.pymdownx.caret]
+[project.markdown_extensions.pymdownx.details]
+[project.markdown_extensions.pymdownx.emoji]
+emoji_generator = "zensical.extensions.emoji.to_svg"
+emoji_index = "zensical.extensions.emoji.twemoji"
+[project.markdown_extensions.pymdownx.highlight]
+anchor_linenums = true
+line_spans = "__span"
+pygments_lang_class = true
+[project.markdown_extensions.pymdownx.inlinehilite]
+[project.markdown_extensions.pymdownx.keys]
+[project.markdown_extensions.pymdownx.magiclink]
+[project.markdown_extensions.pymdownx.mark]
+[project.markdown_extensions.pymdownx.smartsymbols]
+[project.markdown_extensions.pymdownx.superfences]
+custom_fences = [
+  { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" }
+]
+[project.markdown_extensions.pymdownx.tabbed]
+alternate_style = true
+combine_header_slug = true
+[project.markdown_extensions.pymdownx.tasklist]
+custom_checkbox = true
+[project.markdown_extensions.pymdownx.tilde]
