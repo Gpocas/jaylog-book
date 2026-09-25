@@ -8,6 +8,7 @@ Em cima do módulo padrão `logging` do Python, o jaylog adiciona:
 - **Console colorido**: saída legível no terminal, com detecção automática de suporte a ANSI (inclusive no `cmd.exe`/PowerShell legado do Windows).
 - **Envio HTTP**: cada registro de log pode ser enviado para um endpoint remoto, para centralizar logs de uma frota de bots em um único lugar.
 - **Registro de ambiente (host reporting)**: no início da execução, o jaylog coleta uma "fotografia" do ambiente — sistema operacional, versão do Python, virtualenv, informações do Git — e envia para um endpoint dedicado, permitindo saber *onde* e *como* cada processo está rodando.
+- **Métricas de recursos**: enquanto o processo roda, o jaylog envia a cada minuto o uso de CPU, memória e disco da máquina e do próprio bot (incluindo os programas que ele abre), junto com os limites da máquina, para acompanhar o consumo em gráficos.
 - **Múltiplos loggers nomeados**: quando um mesmo processo tem mais de um serviço lógico, cada um pode ter seu próprio `app_name` e arquivo de log.
 
 ## Por que não usar só o `logging` padrão?
