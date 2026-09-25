@@ -25,7 +25,7 @@ logger.info("mensagem")
 
 ## `shutdown()`
 
-Encerra os handlers e os reporters de ambiente, aguardando o flush dos logs pendentes. Útil para garantir que tudo foi gravado/enviado antes do processo terminar.
+Encerra os handlers, os reporters de ambiente e o coletor de [métricas de recursos](../producao/metricas-de-recursos.md) (que envia uma última amostra), aguardando o flush dos logs pendentes. Útil para garantir que tudo foi gravado/enviado antes do processo terminar.
 
 ## `JaylogSettings`
 

@@ -1,10 +1,10 @@
 # Registro de Ambiente (Host Reporting)
 
-Na versão 0.3, `configure()` inicia em segundo plano um único `POST` JSON para o endpoint de host por serviço. O corpo dos logs continua compatível com a linha 0.2.x; apenas os headers `x-jaylog-protocol: 2` e `x-jaylog-run-id` são adicionados. O `run_id` permite ao backend ligar os logs à execução que os produziu.
+Na versão 0.3, `configure()` inicia em segundo plano um único `POST` JSON para o endpoint de host por serviço. O corpo dos logs continua compatível com a linha 0.2.x; apenas os headers `x-jaylog-protocol` e `x-jaylog-run-id` são adicionados. O protocolo está na versão `3` desde a 0.3.0a4, que acrescentou os limites da máquina ao registro e as [métricas de recursos](metricas-de-recursos.md). O `run_id` permite ao backend ligar os logs à execução que os produziu.
 
 O endpoint é derivado automaticamente trocando o último segmento de `JAYLOG_LOG_HTTP_ENDPOINT`: `https://api.example/logs/add` vira `https://api.example/logs/host`. Use `JAYLOG_HOST_HTTP_ENDPOINT` somente quando o backend publicar a rota em outro endereço.
 
-O registro inclui sistema operacional, modo de execução, Python, virtualenv, Git e diretórios de execução. A URL remota do Git tem sempre a credencial embutida removida antes de sair da máquina. Falhas de coleta ou de rede não interrompem a aplicação: o envio tenta novamente com backoff. Se o backend aceitar um log mas devolver `x-jaylog-host-required: 1`, o jaylog reenvia o registro de host com debounce de 30 segundos; o log já foi aceito e não é reenviado.
+O registro inclui sistema operacional, limites da máquina (CPUs, RAM e disco), modo de execução, Python, virtualenv, Git e diretórios de execução. A URL remota do Git tem sempre a credencial embutida removida antes de sair da máquina. Falhas de coleta ou de rede não interrompem a aplicação: o envio tenta novamente com backoff. Se o backend aceitar um log mas devolver `x-jaylog-host-required: 1`, o jaylog reenvia o registro de host com debounce de 30 segundos; o log já foi aceito e não é reenviado.
 
 `JAYLOG_LOG_HTTP_VERIFY=false` continua sendo o padrão desta versão para não interromper instalações atrás de proxies corporativos. Para validar TLS, use `JAYLOG_LOG_HTTP_VERIFY=true` ou informe o caminho do CA bundle corporativo. O padrão passará a `true` na 0.4.0.
 
@@ -27,6 +27,10 @@ suporta o campo. `service` identifica o serviço informado em `configure()` e
 | `hostname` | Nome da máquina | Nome do computador ou servidor que executa o processo. |
 | `username` | Usuário | Usuário do sistema operacional que iniciou o processo. |
 | `ipv4` | IPv4 | Endereço IPv4 local identificado para a máquina. |
+| `cpu_count` | Quantidade de CPUs | CPUs lógicas da máquina; é o teto dos gráficos de CPU. |
+| `memory_total_bytes` | RAM total | Memória física total da máquina, em bytes. |
+| `disk_total_bytes` | Tamanho do disco | Capacidade, em bytes, do disco onde está o script ou executável. |
+| `disk_path` | Disco medido | Raiz do disco medido, como `C:\` ou `/`. |
 | `os_system` | Sistema operacional | Família do sistema operacional, como `Windows`, `Linux` ou `Darwin`. |
 | `os_release` | Release do sistema | Release do sistema operacional, como a versão do kernel. |
 | `os_version` | Versão do sistema | Detalhe textual da versão fornecido pelo sistema operacional. |
@@ -59,4 +63,4 @@ suporta o campo. `service` identifica o serviço informado em `configure()` e
 
 ## Próximo passo
 
-Em produção, credenciais como `JAYLOG_LOG_HTTP_API_KEY` normalmente não ficam no código nem no `.env` versionado — veja [Secrets em Produção](secrets.md).
+Além da fotografia do início, o jaylog acompanha o uso de CPU, memória e disco a cada minuto enquanto o processo roda — veja [Métricas de Recursos](metricas-de-recursos.md).

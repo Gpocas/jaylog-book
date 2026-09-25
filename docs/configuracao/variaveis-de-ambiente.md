@@ -26,6 +26,9 @@ As variáveis usam o prefixo `JAYLOG_`. Podem ser definidas no ambiente do siste
 | `JAYLOG_HOST_GIT_REMOTE_ENABLED`| NÃO          | `true`    | Coleta a URL remota sem credenciais                                     |
 | `JAYLOG_HOST_GIT_TIMEOUT`       | NÃO          | `3.0`     | Timeout, em segundos, de cada chamada ao Git                            |
 | `JAYLOG_HOST_GIT_DIR`           | NÃO          | `null`    | Diretório inicial para localizar o repositório                          |
+| `JAYLOG_HOST_METRICS_ENABLED`   | NÃO          | `true`    | Envia uso de CPU, memória e disco a cada intervalo (exige `HOST_REPORT_ENABLED`) |
+| `JAYLOG_HOST_METRICS_INTERVAL`  | NÃO          | `60`      | Segundos entre amostras de métricas (mínimo `10`)                       |
+| `JAYLOG_HOST_METRICS_HTTP_ENDPOINT` | NÃO      | derivado  | Override para o endpoint de métricas; por padrão `/logs/add` vira `/logs/host-metrics` |
 
 !!! important
 

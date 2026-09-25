@@ -15,7 +15,7 @@ Esta documentação foi organizada para guiar você desde os conceitos fundament
 | 1 | **Conceitos Básicos** | O que é o jaylog, como instalar e como configurar seu primeiro logger |
 | 2 | **Configuração** | As variáveis de ambiente disponíveis e como organizá-las em arquivos `.env` |
 | 3 | **Guia de Uso** | Os cenários mais comuns: arquivo único, múltiplos módulos, múltiplos loggers e cores no console |
-| 4 | **Produção** | Registro de ambiente (host reporting), gestão de secrets e reconfiguração sem repetir argumentos |
+| 4 | **Produção** | Registro de ambiente (host reporting), métricas de CPU/memória/disco, gestão de secrets e reconfiguração sem repetir argumentos |
 | 5 | **Referência** | A API pública do pacote, para consulta rápida |
 
 ## Instalação rápida
