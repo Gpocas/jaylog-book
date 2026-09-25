@@ -36,6 +36,7 @@ nav = [
   { "Produção" = [
     { "Registro de Ambiente (Host Reporting)" = "producao/registro-de-ambiente.md" },
     { "Métricas de Recursos" = "producao/metricas-de-recursos.md" },
+    { "Agendas do Task Scheduler" = "producao/agendas-do-task-scheduler.md" },
     { "Secrets em Produção" = "producao/secrets.md" },
     { "Reconfigurando sem Repetir Argumentos" = "producao/reconfigurando.md" },
   ]},

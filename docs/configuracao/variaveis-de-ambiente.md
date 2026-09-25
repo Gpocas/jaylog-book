@@ -29,6 +29,9 @@ As variáveis usam o prefixo `JAYLOG_`. Podem ser definidas no ambiente do siste
 | `JAYLOG_HOST_METRICS_ENABLED`   | NÃO          | `true`    | Envia uso de CPU, memória e disco a cada intervalo (exige `HOST_REPORT_ENABLED`) |
 | `JAYLOG_HOST_METRICS_INTERVAL`  | NÃO          | `60`      | Segundos entre amostras de métricas (mínimo `10`)                       |
 | `JAYLOG_HOST_METRICS_HTTP_ENDPOINT` | NÃO      | derivado  | Override para o endpoint de métricas; por padrão `/logs/add` vira `/logs/host-metrics` |
+| `JAYLOG_HOST_SCHEDULE_ENABLED`  | NÃO          | `true`    | Envia agendas do Task Scheduler uma vez por processo (só Windows + execução pelo Agendador) |
+| `JAYLOG_HOST_SCHEDULE_HTTP_ENDPOINT` | NÃO     | derivado  | Override para o endpoint de agendas; por padrão `/logs/add` vira `/logs/host-schedules` |
+| `JAYLOG_HOST_SCHEDULE_TIMEOUT`  | NÃO          | `10.0`    | Timeout, em segundos, de `schtasks /query /xml`                        |
 
 !!! important
 
