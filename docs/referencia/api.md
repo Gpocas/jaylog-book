@@ -36,6 +36,19 @@ Métodos relevantes:
 - `reload_secrets()` — recarrega os campos sensíveis a partir de `secrets_dir` (veja [Secrets em Produção](../producao/secrets.md)).
 - `reconfigure(**overrides)` — recria a configuração aplicando apenas os overrides informados (veja [Reconfigurando sem Repetir Argumentos](../producao/reconfigurando.md)).
 
+Campos de diagnóstico:
+
+- `debug: bool = False` — habilita os diagnósticos internos do jaylog;
+- `debug_handlers: str = "console"` — lista separada por vírgulas com os
+  destinos `console`, `file` e/ou `http`;
+- `effective_debug_handlers` — propriedade somente leitura com os destinos
+  normalizados.
+
+Quando `configure()` recebe múltiplas configurações, o diagnóstico é habilitado
+se ao menos uma delas tiver `debug=True`; os destinos informados pelas
+configurações habilitadas são combinados para o processo. Consulte
+[Diagnóstico Técnico](../guia-de-uso/diagnostico-tecnico.md).
+
 ## `__version__` e `PROTOCOL_VERSION`
 
 - `__version__`: versão instalada do pacote.

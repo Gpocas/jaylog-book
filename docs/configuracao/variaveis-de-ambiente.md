@@ -5,6 +5,8 @@ As variáveis usam o prefixo `JAYLOG_`. Podem ser definidas no ambiente do siste
 | Variável                        | obrigatório? | Padrão    | Descrição                                                               |
 | ------------------------------- | ------------ | --------- | ----------------------------------------------------------------------- |
 | `JAYLOG_APP_NAME`               | SIM          | `null`    | Nome do serviço/bot (usado no nome do arquivo de log)                   |
+| `JAYLOG_DEBUG`                  | NÃO          | `false`   | Habilita o diagnóstico técnico interno do jaylog                        |
+| `JAYLOG_DEBUG_HANDLERS`         | NÃO          | `console` | Destinos do diagnóstico, separados por vírgula: `console`, `file`, `http` |
 | `JAYLOG_LOG_DIR`                | NÃO          | `null`    | Caminho do diretório onde os arquivos de log serão salvos. Se omitido, o handler de arquivo é desativado |
 | `JAYLOG_LOG_LEVEL`              | NÃO          | `INFO`    | Nível mínimo de log (`DEBUG`, `INFO`, `WARNING`, `ERROR`, `CRITICAL`)   |
 | `JAYLOG_LOG_MAX_BYTES`          | NÃO          | `5242880` | Tamanho máximo do arquivo de log antes de rotacionar (bytes)            |
@@ -40,6 +42,13 @@ As variáveis usam o prefixo `JAYLOG_`. Podem ser definidas no ambiente do siste
     - A configuração de **HTTP_ENDPOINT** e **HTTP_API_KEY** não precisa ser feita em ambiente local ou de desenvolvimento.
     - Se apenas uma das duas variáveis for definida, o envio HTTP é ignorado.
     - Caso a aplicação execute em um ambiente que usa um proxy NTLM, defina `JAYLOG_LOG_HTTP_PROXY`.
+
+!!! note
+
+    `JAYLOG_DEBUG` não equivale a `JAYLOG_LOG_LEVEL=DEBUG`. A primeira opção
+    diagnostica a operação interna do jaylog; a segunda controla registros
+    `logger.debug(...)` produzidos pela aplicação. Consulte
+    [Diagnóstico Técnico](../guia-de-uso/diagnostico-tecnico.md).
 
 ## Próximo passo
 

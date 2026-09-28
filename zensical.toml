@@ -32,6 +32,7 @@ nav = [
     { "Cenários Comuns" = "guia-de-uso/cenarios-comuns.md" },
     { "Múltiplos Loggers Nomeados" = "guia-de-uso/multiplos-loggers.md" },
     { "Cores no Console" = "guia-de-uso/cores-no-console.md" },
+    { "Diagnóstico Técnico" = "guia-de-uso/diagnostico-tecnico.md" },
   ]},
   { "Produção" = [
     { "Registro de Ambiente (Host Reporting)" = "producao/registro-de-ambiente.md" },

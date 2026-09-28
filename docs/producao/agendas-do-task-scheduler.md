@@ -17,7 +17,7 @@ Ela é executada dentro de uma thread daemon. O `configure()` não espera pelo c
 
 ## Como uma task é associada ao bot
 
-O jaylog compara o **arquivo** que iniciou o processo, e não apenas a pasta. Isso evita atribuir ao bot a agenda de outro script no mesmo diretório.
+O jaylog compara o **arquivo** que iniciou o processo, e não apenas a pasta. Isso evita atribuir ao bot a agenda de outro script no mesmo diretório. O entrypoint é obtido, em ordem, pelo executável congelado, por `__main__.__file__` ou por `sys.argv[0]`. O último é um fallback para launchers que removem ou substituem o módulo `__main__`; `-c` e stdin (`-`) não são tratados como arquivos.
 
 Dois formatos de action `Exec` são suportados:
 
@@ -94,6 +94,26 @@ JAYLOG_HOST_SCHEDULE_ENABLED=false
 | Credencial ou payload recusado (`401`, `403`, `422`) | O envio é desativado para o processo, com um aviso. |
 
 O envio é único por processo: agendas não são reenviadas quando o backend pede o reenvio do [Registro de Ambiente](registro-de-ambiente.md), porque esse pedido se refere apenas à identidade da execução.
+
+## Diagnóstico
+
+Para acompanhar formalmente todas as etapas da sincronização:
+
+```env
+JAYLOG_DEBUG=true
+JAYLOG_DEBUG_HANDLERS=console
+```
+
+O rastreamento informa a classificação do processo, o entrypoint, a execução de
+`schtasks /query /xml`, o resultado do parsing, a associação de cada task, a
+quantidade de agendas consolidadas e o status do `POST /logs/host-schedules`.
+
+Se aparecer `entrypoint não identificado`, confirme que a action inicia um
+arquivo `.py`, `.pyw` ou um executável congelado. Para `.bat`/`.cmd`, mantenha o
+script no conteúdo do batch e preencha **Iniciar em** com o diretório do projeto.
+
+Veja exemplos de saída, destinos e cuidados de segurança em
+[Diagnóstico Técnico](../guia-de-uso/diagnostico-tecnico.md).
 
 ## Próximo passo
 

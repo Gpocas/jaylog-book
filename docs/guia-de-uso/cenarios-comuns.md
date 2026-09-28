@@ -77,4 +77,4 @@ def parse_csv():
 
 ## Próximo passo
 
-Quando um mesmo processo precisa separar logs de serviços distintos, veja [Múltiplos Loggers Nomeados](multiplos-loggers.md).
+Quando um mesmo processo precisa separar logs de serviços distintos, veja [Múltiplos Loggers Nomeados](multiplos-loggers.md). Para investigar a operação da própria biblioteca, consulte [Diagnóstico Técnico](diagnostico-tecnico.md).

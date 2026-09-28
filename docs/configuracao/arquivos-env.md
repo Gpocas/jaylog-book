@@ -50,6 +50,19 @@ logger.info("Alterando caminho padrão do .env")
 
 Esse mecanismo é a base para separar ambientes de desenvolvimento, homologação e produção — veja [Reconfigurando sem Repetir Argumentos](../producao/reconfigurando.md) para um exemplo mais completo com múltiplos ambientes.
 
+## Diagnóstico temporário
+
+Para observar a operação interna do jaylog sem alterar o nível dos logs da
+aplicação, acrescente temporariamente:
+
+```env
+JAYLOG_DEBUG=true
+JAYLOG_DEBUG_HANDLERS=console
+```
+
+Os destinos também podem incluir `file` e `http`. Veja o comportamento e os
+cuidados de produção em [Diagnóstico Técnico](../guia-de-uso/diagnostico-tecnico.md).
+
 ## Próximo passo
 
 Com a configuração básica dominada, avance para o [Guia de Uso](../guia-de-uso/cenarios-comuns.md) para ver os cenários mais comuns de aplicação.
