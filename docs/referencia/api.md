@@ -25,7 +25,19 @@ logger.info("mensagem")
 
 ## `shutdown()`
 
-Encerra os handlers, os reporters de ambiente e o coletor de [métricas de recursos](../producao/metricas-de-recursos.md) (que envia uma última amostra), aguardando o flush dos logs pendentes. Útil para garantir que tudo foi gravado/enviado antes do processo terminar.
+Encerra os handlers, os reporters de ambiente, o coletor de [métricas de recursos](../producao/metricas-de-recursos.md) (que envia uma última amostra) e o [heartbeat](../producao/heartbeat.md) (que envia o último beat pendente), aguardando o flush dos logs pendentes. Útil para garantir que tudo foi gravado/enviado antes do processo terminar.
+
+## `heartbeat(service=None)`
+
+Avisa o backend de que o loop do serviço está progredindo, mesmo sem emitir logs. Chame dentro do loop; é barata e nunca levanta. Sem argumento vale para o primeiro logger registrado; com `service="BILLING"`, para aquele `app_name`. Veja [Heartbeat de Serviço](../producao/heartbeat.md).
+
+```python
+import jaylog
+
+while True:
+    processar_fila()
+    jaylog.heartbeat()
+```
 
 ## `JaylogSettings`
 
