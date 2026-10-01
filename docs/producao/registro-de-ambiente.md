@@ -61,6 +61,15 @@ suporta o campo. `service` identifica o serviço informado em `configure()` e
 | `cwd` | Diretório de trabalho atual | Diretório atual do processo no momento da coleta. |
 | `entrypoint` | Ponto de entrada | Diretório do script ou executável que iniciou a aplicação. |
 
+## Ambiente atual sem logs
+
+O registro de ambiente sai do `configure()`, não do primeiro log. Por isso o dashboard mostra o ambiente da **execução ativa** (protocolo, versão do pacote, Python, Git…) mesmo que ela ainda não tenha emitido nenhum log. O detalhe de um log antigo continua mostrando o ambiente da execução que o emitiu.
+
+A execução ativa é a de atividade mais recente da instância (mesmo `service`, `hostname` e `username`): o último heartbeat ou, sem `jaylog.heartbeat()`, o momento em que o registro foi enviado.
+
+!!! tip "Serviço silencioso"
+    Se o backend perder o registro enquanto o serviço está sem logar (restart, limpeza de dados), quem faz o jaylog reenviar o ambiente é o [heartbeat](heartbeat.md): a resposta do backend pede o reenvio. Serviços que nem logam nem chamam `jaylog.heartbeat()` só se recuperam no próximo restart.
+
 ## Próximo passo
 
 Além da fotografia do início, o jaylog acompanha o uso de CPU, memória e disco a cada minuto enquanto o processo roda — veja [Métricas de Recursos](metricas-de-recursos.md).
