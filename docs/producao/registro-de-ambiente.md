@@ -65,7 +65,11 @@ suporta o campo. `service` identifica o serviço informado em `configure()` e
 
 O registro de ambiente sai do `configure()`, não do primeiro log. Por isso o dashboard mostra o ambiente da **execução ativa** (protocolo, versão do pacote, Python, Git…) mesmo que ela ainda não tenha emitido nenhum log. O detalhe de um log antigo continua mostrando o ambiente da execução que o emitiu.
 
-A execução ativa é a de atividade mais recente da instância (mesmo `service`, `hostname` e `username`): o último heartbeat ou, sem `jaylog.heartbeat()`, o momento em que o registro foi enviado.
+A **execução ativa** é, entre as execuções da instância (mesmo `service`, `hostname` e `username`) que deram sinal nos últimos 15 minutos, a que **iniciou por último**. Sinal é o último heartbeat ou, sem `jaylog.heartbeat()`, o momento em que o registro foi enviado. Se nenhuma deu sinal nesse prazo, vale a de atividade mais recente, e o dashboard a chama de "Última execução" em vez de "Execução ativa".
+
+### Execuções simultâneas
+
+Quando duas ou mais execuções da mesma instância estão vivas ao mesmo tempo (por exemplo, um robô agendado cuja execução anterior ainda não terminou), a aba **Ambiente** avisa quantas outras existem e deixa escolher qual ver, com início e PID de cada uma. A escolha vale também para a aba **Recursos**. A que iniciou por último é sempre a exibida por padrão, e ela não muda quando uma execução mais antiga manda heartbeat depois.
 
 !!! tip "Serviço silencioso"
     Se o backend perder o registro enquanto o serviço está sem logar (restart, limpeza de dados), quem faz o jaylog reenviar o ambiente é o [heartbeat](heartbeat.md): a resposta do backend pede o reenvio. Serviços que nem logam nem chamam `jaylog.heartbeat()` só se recuperam no próximo restart.
