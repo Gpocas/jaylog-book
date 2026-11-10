@@ -6,7 +6,7 @@ O endpoint é derivado automaticamente trocando o último segmento de `JAYLOG_LO
 
 O registro inclui sistema operacional, limites da máquina (CPUs, RAM e disco), modo de execução, Python, virtualenv, Git e diretórios de execução. A URL remota do Git tem sempre a credencial embutida removida antes de sair da máquina. Falhas de coleta ou de rede não interrompem a aplicação: o envio tenta novamente com backoff. Se o backend aceitar um log mas devolver `x-jaylog-host-required: 1`, o jaylog reenvia o registro de host com debounce de 30 segundos; o log já foi aceito e não é reenviado.
 
-`JAYLOG_LOG_HTTP_VERIFY=false` continua sendo o padrão desta versão para não interromper instalações atrás de proxies corporativos. Para validar TLS, use `JAYLOG_LOG_HTTP_VERIFY=true` ou informe o caminho do CA bundle corporativo. O padrão passará a `true` na 0.4.0.
+O registro usa a mesma configuração de certificado TLS dos logs (`JAYLOG_LOG_HTTP_VERIFY`). O padrão desta versão é `false` e passará a `true` na 0.4.0; veja [Certificado TLS (HTTPS)](certificado-tls.md) para os valores aceitos e o caso de proxy corporativo.
 
 ## Campos do Hosting Report
 

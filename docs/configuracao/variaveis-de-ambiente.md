@@ -18,7 +18,7 @@ As variáveis usam o prefixo `JAYLOG_`. Podem ser definidas no ambiente do siste
 | `JAYLOG_LOG_HTTP_ENDPOINT`      | NÃO          | `null`    | URL do endpoint que receberá os logs                                    |
 | `JAYLOG_LOG_HTTP_API_KEY`       | NÃO          | `null`    | Chave de autenticação enviada no header `x-api-key`                     |
 | `JAYLOG_LOG_HTTP_PROXY`         | NÃO          | `null`    | URL do proxy para o envio HTTP (ex: `http:\\user:password@server:port`) |
-| `JAYLOG_LOG_HTTP_VERIFY`        | NÃO          | `false`   | `true` ou caminho para o bundle de CA usado para validar TLS            |
+| `JAYLOG_LOG_HTTP_VERIFY`        | NÃO          | `false`   | Verificação do certificado TLS: `true`, `false` ou caminho de um CA bundle. Passa a `true` na 0.4.0 (veja [Certificado TLS](../producao/certificado-tls.md)) |
 | `JAYLOG_LOG_SCREENSHOT_ENABLED` | NÃO          | `false`   | Captura screenshot no momento do log (`true`/`false`, apenas Windows)   |
 | `JAYLOG_HOST_REPORT_ENABLED`    | NÃO          | `true`    | Envia uma fotografia do ambiente no startup                             |
 | `JAYLOG_HOST_HTTP_ENDPOINT`     | NÃO          | derivado  | Override para o endpoint de host; por padrão `/logs/add` vira `/logs/host` |
@@ -45,6 +45,7 @@ As variáveis usam o prefixo `JAYLOG_`. Podem ser definidas no ambiente do siste
     - A configuração de **HTTP_ENDPOINT** e **HTTP_API_KEY** não precisa ser feita em ambiente local ou de desenvolvimento.
     - Se apenas uma das duas variáveis for definida, o envio HTTP é ignorado.
     - Caso a aplicação execute em um ambiente que usa um proxy NTLM, defina `JAYLOG_LOG_HTTP_PROXY`.
+    - Se o proxy inspeciona HTTPS, aponte `JAYLOG_LOG_HTTP_VERIFY` para o CA bundle corporativo (veja [Certificado TLS](../producao/certificado-tls.md)).
 
 !!! note
 

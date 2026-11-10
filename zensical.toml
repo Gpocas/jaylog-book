@@ -39,6 +39,7 @@ nav = [
     { "Métricas de Recursos" = "producao/metricas-de-recursos.md" },
     { "Heartbeat de Serviço" = "producao/heartbeat.md" },
     { "Agendas do Task Scheduler" = "producao/agendas-do-task-scheduler.md" },
+    { "Certificado TLS (HTTPS)" = "producao/certificado-tls.md" },
     { "Secrets em Produção" = "producao/secrets.md" },
     { "Reconfigurando sem Repetir Argumentos" = "producao/reconfigurando.md" },
   ]},
